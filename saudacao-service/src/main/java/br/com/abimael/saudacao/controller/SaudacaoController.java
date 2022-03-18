@@ -19,7 +19,7 @@ public class SaudacaoController {
 	private SaudacaoConfig config;
 
 	@RequestMapping("/saudacao")
-	public Saudacao greeting(@RequestParam(value = "name", defaultValue = "Mundo") String name) {
+	public Saudacao greeting(@RequestParam(value = "name", defaultValue = "") String name) {
 		if (name.isEmpty()) {
 			name = config.getDefaultValue();
 		}
