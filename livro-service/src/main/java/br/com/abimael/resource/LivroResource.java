@@ -1,50 +1,39 @@
-package br.com.abimael.model;
+package br.com.abimael.resource;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@Entity(name = "book")
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-public class Livro implements Serializable {
+public class LivroResource implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Long id;
 
-	@Column(name = "author", nullable = false, length = 180)
 	private String autor;
 
-	@Column(name = "launch_date", nullable = false)
-	@Temporal(TemporalType.DATE)
 	private Date dataLancamento;
 
-	@Column(name = "price", nullable = false)
 	private Double preco;
 
-	@Column(name = "title", nullable = false, length = 250)
 	private String titulo;
 
-	public Livro() {
+	private String moeda;
+
+	private String ambiente;
+
+	public LivroResource() {
 	}
 
-	public Livro(Long id, String autor, String titulo, Date dataLancamento, Double preco) {
+	public LivroResource(Long id, String autor, String titulo, Date dataLancamento, Double preco, String moeda,
+			String ambiente) {
 		this.id = id;
 		this.autor = autor;
 		this.dataLancamento = dataLancamento;
 		this.preco = preco;
 		this.titulo = titulo;
+		this.moeda = moeda;
+		this.ambiente = ambiente;
 	}
 
 	public Long getId() {
@@ -87,9 +76,25 @@ public class Livro implements Serializable {
 		this.titulo = titulo;
 	}
 
+	public String getMoeda() {
+		return moeda;
+	}
+
+	public void setMoeda(String moeda) {
+		this.moeda = moeda;
+	}
+
+	public String getAmbiente() {
+		return ambiente;
+	}
+
+	public void setAmbiente(String ambiente) {
+		this.ambiente = ambiente;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(autor, dataLancamento, id, preco, titulo);
+		return Objects.hash(ambiente, autor, dataLancamento, id, moeda, preco, titulo);
 	}
 
 	@Override
@@ -100,9 +105,10 @@ public class Livro implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Livro other = (Livro) obj;
-		return Objects.equals(autor, other.autor) && Objects.equals(dataLancamento, other.dataLancamento)
-				&& Objects.equals(id, other.id) && Objects.equals(preco, other.preco)
+		LivroResource other = (LivroResource) obj;
+		return Objects.equals(ambiente, other.ambiente) && Objects.equals(autor, other.autor)
+				&& Objects.equals(dataLancamento, other.dataLancamento) && Objects.equals(id, other.id)
+				&& Objects.equals(moeda, other.moeda) && Objects.equals(preco, other.preco)
 				&& Objects.equals(titulo, other.titulo);
 	}
 
