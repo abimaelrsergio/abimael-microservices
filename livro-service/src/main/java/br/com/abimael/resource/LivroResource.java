@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class LivroResource implements Serializable {
 
 	private static final long serialVersionUID = 1L;

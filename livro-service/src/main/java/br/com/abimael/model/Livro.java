@@ -15,7 +15,6 @@ import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "book")
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Livro implements Serializable {
 
 	private static final long serialVersionUID = 1L;

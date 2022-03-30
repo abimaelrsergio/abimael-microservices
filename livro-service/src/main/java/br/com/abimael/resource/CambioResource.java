@@ -1,6 +1,5 @@
 package br.com.abimael.resource;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 public class CambioResource {
@@ -11,16 +10,16 @@ public class CambioResource {
 
 	private String to;
 
-	private BigDecimal conversionFactor;
+	private Double conversionFactor;
 
-	private BigDecimal convertedValue;
+	private Double convertedValue;
 
 	private String environment;
 
 	public CambioResource() {
 	}
 
-	public CambioResource(Long id, String from, String to, BigDecimal conversionFactor, BigDecimal convertedValue,
+	public CambioResource(Long id, String from, String to, Double conversionFactor, Double convertedValue,
 			String environment) {
 		this.id = id;
 		this.from = from;
@@ -54,19 +53,19 @@ public class CambioResource {
 		this.to = to;
 	}
 
-	public BigDecimal getConversionFactor() {
+	public Double getConversionFactor() {
 		return conversionFactor;
 	}
 
-	public void setConversionFactor(BigDecimal conversionFactor) {
+	public void setConversionFactor(Double conversionFactor) {
 		this.conversionFactor = conversionFactor;
 	}
 
-	public BigDecimal getConvertedValue() {
+	public Double getConvertedValue() {
 		return convertedValue;
 	}
 
-	public void setConvertedValue(BigDecimal convertedValue) {
+	public void setConvertedValue(Double convertedValue) {
 		this.convertedValue = convertedValue;
 	}
 
