@@ -34,7 +34,7 @@ public class LivroController {
 
 	private void adicionarPorta(LivroResource livroResource) {
 		var porta = environment.getProperty("local.server.port");
-		livroResource.setAmbiente(porta + "FEIGN");
+		livroResource.setAmbiente(porta + " FEIGN");
 	}
 
 }
