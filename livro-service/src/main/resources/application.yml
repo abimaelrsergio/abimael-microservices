@@ -1,5 +1,10 @@
 server:
   port: 8100
+# aqui vai o endereço do servidor eureka (é opcional)  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka 
 spring:
   application:
     name: livro-service
